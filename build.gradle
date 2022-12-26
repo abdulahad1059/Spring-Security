@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.6.7'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.spring-learning'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+ext{
+    springSecurityVersion='5.8.1'
+    springBootVersion='2.6.7'
+
+}
+configurations {
+    compileOnly
+}
+dependencies {
+    //    implementation 'org.springframework.boot:spring-boot-starter-security'
+//    implementation 'org.springframework.security:spring-security-config:5.8.1'
+//    implementation 'org.springframework.security:spring-security-core:5.8.1'
+//
+//    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.3'
+//
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    testImplementation 'org.springframework.security:spring-security-test'
+//    compileOnly 'org.projectlombok:lombok'
+//    annotationProcessor 'org.projectlombok:lombok'
+//    implementation 'com.h2database:h2:2.1.212'
+//    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '3.0.0'
+//    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+//    compileOnly 'javax.servlet:servlet-api:2.5'
+
+    // https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    implementation "org.springframework.security:spring-security-core:$springSecurityVersion"
+    implementation "org.springframework.security:spring-security-config:$springSecurityVersion"
+    implementation "org.springframework.security:spring-security-web:$springSecurityVersion"
+    implementation "org.springframework.boot:spring-boot-starter-web:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-starter-security:$springBootVersion"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    implementation 'com.h2database:h2:2.1.212'
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
+    compileOnly 'javax.servlet:servlet-api:2.5'
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
